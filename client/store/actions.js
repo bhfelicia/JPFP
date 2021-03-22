@@ -1,7 +1,7 @@
 //Action types
 
-const GET_STUDENTS = "GET_STUDENTS";
-const GET_CAMPUSES = "GET_CAMPUSES";
+export const GET_STUDENTS = "GET_STUDENTS";
+export const GET_CAMPUSES = "GET_CAMPUSES";
 
 //Action creators
 

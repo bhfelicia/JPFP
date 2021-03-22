@@ -5,13 +5,6 @@ import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 class App extends Component {
-  //constructor to initialize state
-  constructor() {
-    super();
-  }
-
-  //any lifecycle methods
-  //any custom methods
   render() {
     return (
       <Router>
@@ -21,7 +14,6 @@ class App extends Component {
       </Router>
     );
   }
-  //render
 }
 
-export default connect(mapStateToProps)(App);
+export default App;

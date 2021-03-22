@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { GET_STUDENTS, GET_CAMPUSES } from "./actions";
 
 //individual reducers
 const studentsReducer = (state = [], action) => {

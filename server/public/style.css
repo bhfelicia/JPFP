@@ -1,0 +1,6 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
