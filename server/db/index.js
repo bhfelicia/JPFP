@@ -9,10 +9,7 @@ Campus.hasMany(Student);
 //state your model associations (hasOne etc)
 
 const syncAndSeed = async () => {
-  console.log("hi");
   try {
-    console.log(Campus);
-    console.log(Student);
     await db.sync({ force: true });
     const beethoven = await Student.create({
       firstName: "Ludwig van",
@@ -42,16 +39,16 @@ const syncAndSeed = async () => {
       description:
         "Princeton University is a private Ivy League research university in Princeton, New Jersey. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution.",
     });
-    // beethoven.campusId = rutgers.id;
-    // ravel.campusId = rutgers.id;
-    // bach.campusId = princeton.id;
-    // debussy.campusId = princeton.id;
-    // await Promise.all([
-    //   beethoven.save(),
-    //   ravel.save(),
-    //   bach.save(),
-    //   debussy.save(),
-    // ]);
+    beethoven.campusId = rutgers.id;
+    ravel.campusId = rutgers.id;
+    bach.campusId = princeton.id;
+    debussy.campusId = princeton.id;
+    await Promise.all([
+      beethoven.save(),
+      ravel.save(),
+      bach.save(),
+      debussy.save(),
+    ]);
   } catch (error) {
     console.log(error);
   }

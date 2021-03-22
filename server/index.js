@@ -1,9 +1,9 @@
 const express = require("express");
 //initialize app
 const app = express();
+const path = require("path");
 
 //require morgan|volleyball, path packages
-const path = require("path");
 const morgan = require("morgan");
 //require db from /db
 const db = require("./db/db");
@@ -15,6 +15,10 @@ app.use(morgan("dev"));
 app.use(express.json());
 //use express.static() MAKE SURE THE PATH TO YOUR PUBLIC FOLDER IS RIGHT!
 app.use(express.static(path.join(__dirname, "/public")));
+
+app.get("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+});
 //require in your routes and use them on your api path
 app.use("/api", require("./routes"));
 //404 handler

@@ -43,7 +43,7 @@ Student.init(
         "https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg",
     },
     gpa: {
-      type: DataTypes.FLOAT(3, 2),
+      type: DataTypes.DECIMAL(3, 2),
       defaultValue: 3.5,
     },
   },

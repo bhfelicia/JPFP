@@ -1,8 +1,22 @@
 const router = require("express").Router();
-
 //import models from /db
-router.get("/", async (req, res, next) => {
+const {
+  Models: { Campus, Student },
+} = require("../db");
+
+router.get("/campuses", async (req, res, next) => {
   try {
+    const campuses = await Campus.findAll();
+    res.send(campuses);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/students", async (req, res, next) => {
+  try {
+    const students = await Student.findAll();
+    res.send(students);
   } catch (error) {
     next(error);
   }
