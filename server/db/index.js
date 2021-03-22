@@ -1,12 +1,12 @@
 //import your db
 const db = require("./db");
+//import your models
 const Student = require("./models/Student");
 const Campus = require("./models/Campus");
-//import your models
 
+//state your model associations
 Student.belongsTo(Campus);
 Campus.hasMany(Student);
-//state your model associations (hasOne etc)
 
 const syncAndSeed = async () => {
   try {
