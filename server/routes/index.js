@@ -15,7 +15,9 @@ router.get("/campuses", async (req, res, next) => {
 
 router.get("/students", async (req, res, next) => {
   try {
-    const students = await Student.findAll();
+    const students = await Student.findAll({
+      include: Campus,
+    });
     res.send(students);
   } catch (error) {
     next(error);

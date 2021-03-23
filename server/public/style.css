@@ -1,6 +1,13 @@
 nav {
   display: flex;
   justify-content: space-around;
-  font-size: 2rem;
+  font-size: 1rem;
+}
+* {
   font-family: Georgia, "Times New Roman", Times, serif;
+}
+#welcome {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-around;
 }
