@@ -20,6 +20,6 @@ nav {
   margin: 50px;
 }
 img {
-  height: 700px;
   width: 900px;
+  border-radius: 50%;
 }

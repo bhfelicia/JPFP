@@ -17,6 +17,12 @@ const syncAndSeed = async () => {
       image:
         "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beethoven.jpg",
     });
+    const debussy = await Student.create({
+      firstName: "Claude",
+      lastName: "Debussy",
+      image:
+        "https://cdn.britannica.com/83/216783-050-E461C8B6/French-composer-Claude-Debussy.jpg",
+    });
     const ravel = await Student.create({
       firstName: "Maurice",
       lastName: "Ravel",
@@ -28,12 +34,7 @@ const syncAndSeed = async () => {
       lastName: "Bach",
       image: "https://static.dw.com/image/18418948_303.jpg",
     });
-    const debussy = await Student.create({
-      firstName: "Claude",
-      lastName: "Debussy",
-      image:
-        "https://cdn.britannica.com/83/216783-050-E461C8B6/French-composer-Claude-Debussy.jpg",
-    });
+
     const rutgers = await Campus.create({
       name: "Rutgers University",
       address: "65 Davidson Road, Room 202, Piscataway, New Jersey 08854-8097",
@@ -54,9 +55,9 @@ const syncAndSeed = async () => {
     debussy.campusId = princeton.id;
     await Promise.all([
       beethoven.save(),
+      debussy.save(),
       ravel.save(),
       bach.save(),
-      debussy.save(),
     ]);
   } catch (error) {
     console.log(error);

@@ -15,12 +15,36 @@ router.get("/campuses", async (req, res, next) => {
   }
 });
 
+router.get("/campuses/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const campus = await Campus.findByPk(id, {
+      include: Student,
+    });
+    res.send(campus);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/students", async (req, res, next) => {
   try {
     const students = await Student.findAll({
       include: Campus,
     });
     res.send(students);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/students/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const student = await Student.findByPk(id, {
+      include: Campus,
+    });
+    res.send(student);
   } catch (error) {
     next(error);
   }
