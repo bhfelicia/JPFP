@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 const Students = ({ students }) => {
   return (
     <div id="students">
-      <hr />
       {students.map((student) => {
         return (
           <div key={`${student.id}`}>
