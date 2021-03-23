@@ -8,7 +8,6 @@ const morgan = require("morgan");
 //require db from /db
 const db = require("./db/db");
 const { syncAndSeed } = require("./db");
-const { errorMonitor } = require("events");
 
 //use morgan|volleyball
 app.use(morgan("dev"));

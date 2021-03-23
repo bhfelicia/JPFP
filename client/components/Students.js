@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 const Students = ({ students }) => {
   return (
-    <div id="students">
+    <div className="widgets">
       {students.map((student) => {
         return (
           <div key={`${student.id}`}>
@@ -20,9 +20,5 @@ const Students = ({ students }) => {
 const mapStateToProps = ({ students }) => ({
   students,
 });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   students: () => dispatch(fetchStudents()),
-// });
 
 export default connect(mapStateToProps)(Students);

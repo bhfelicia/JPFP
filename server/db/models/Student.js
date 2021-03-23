@@ -31,11 +31,6 @@ Student.init(
       get() {
         return `${this.firstName}.${this.lastName}@gmail.com`;
       },
-      // allowNull: false,
-      // validate: {
-      //   notEmpty: true,
-      //   isEmail: true,
-      // },
     },
     image: {
       type: DataTypes.STRING,

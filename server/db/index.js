@@ -45,6 +45,8 @@ const syncAndSeed = async () => {
       address: "330 Alexander Street, 4th Floor, Princeton, NJ 08544",
       description:
         "Princeton University is a private Ivy League research university in Princeton, New Jersey. Founded in 1746 in Elizabeth as the College of New Jersey, Princeton is the fourth-oldest institution of higher education in the United States and one of the nine colonial colleges chartered before the American Revolution.",
+      imageUrl:
+        "https://www.princeton.edu/sites/default/files/styles/half_2x/public/images/2020/07/20191024_CL_DJA_178.jpg?itok=QmoPCsVE",
     });
     beethoven.campusId = rutgers.id;
     ravel.campusId = rutgers.id;
