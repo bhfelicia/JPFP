@@ -1,7 +1,7 @@
 //import axios
 import axios from "axios";
 //import action creators
-import { getStudents, getCampuses } from "./actions";
+import { getStudents, getStudent, getCampuses, getCampus } from "./actions";
 
 //Thunk Creators
 export const fetchStudents = () => {

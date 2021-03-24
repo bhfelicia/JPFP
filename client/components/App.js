@@ -6,6 +6,8 @@ import { fetchStudents, fetchCampuses } from "../store/thunks";
 import Navbar from "./Navbar";
 import Students from "./Students";
 import Campuses from "./Campuses";
+import SingleCampus from "./SingleCampus";
+import SingleStudent from "./SingleStudent";
 
 class App extends Component {
   componentDidMount() {
@@ -21,8 +23,10 @@ class App extends Component {
             <hr />
           </div>
           <Switch>
-            <Route path="/students" component={Students} />
-            <Route path="/campuses" component={Campuses} />
+            <Route exact path="/students" component={Students} />
+            <Route exact path="/campuses" component={Campuses} />
+            <Route path="/campuses/:id" component={SingleCampus} />
+            <Route path="/students/:id" component={SingleStudent} />
           </Switch>
         </div>
       </Router>
