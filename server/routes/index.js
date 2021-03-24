@@ -15,6 +15,15 @@ router.get("/campuses", async (req, res, next) => {
   }
 });
 
+router.post("/campuses", async (req, res, next) => {
+  try {
+    const newCampus = await Campus.create(req.body);
+    res.status(201).send(newCampus);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get("/campuses/:id", async (req, res, next) => {
   try {
     const { id } = req.params;

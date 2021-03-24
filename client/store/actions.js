@@ -1,10 +1,9 @@
 //Action types
 
 export const GET_STUDENTS = "GET_STUDENTS";
-export const GET_STUDENT = "GET_STUDENT";
 
 export const GET_CAMPUSES = "GET_CAMPUSES";
-export const GET_CAMPUS = "GET_CAMPUS";
+export const ADD_CAMPUS = "ADD_CAMPUS";
 
 //Action creators
 
@@ -19,5 +18,12 @@ export const getCampuses = (campuses) => {
   return {
     type: GET_CAMPUSES,
     campuses,
+  };
+};
+
+export const addCampus = (campus) => {
+  return {
+    type: ADD_CAMPUS,
+    campus,
   };
 };

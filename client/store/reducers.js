@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { GET_STUDENTS, GET_STUDENT, GET_CAMPUSES, GET_CAMPUS } from "./actions";
+import { GET_STUDENTS, GET_CAMPUSES, ADD_CAMPUS } from "./actions";
 
 //individual reducers
 const studentsReducer = (state = [], action) => {
@@ -16,6 +16,9 @@ const campusesReducer = (state = [], action) => {
   switch (action.type) {
     case GET_CAMPUSES:
       return action.campuses;
+
+    case ADD_CAMPUS:
+      return [...state, action.campus];
 
     default:
       return state;
