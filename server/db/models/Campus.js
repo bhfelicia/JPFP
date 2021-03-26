@@ -33,6 +33,10 @@ Campus.init(
   { sequelize: db, modelName: "campuses" }
 );
 //define any class or instance methods
-
+// Campus.beforeSave = function {
+//   if(!this.imageUrl) {
+//     this.imageUrl = "https://i.pinimg.com/originals/fa/1c/69/fa1c69557a3965c3a352c47578ea40ff.jpg"
+//   }
+// }
 //export your model
 module.exports = Campus;

@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { default: axios } = require("axios");
 //import models from /db
 const {
   Models: { Campus, Student },
@@ -54,6 +55,15 @@ router.get("/students/:id", async (req, res, next) => {
       include: Campus,
     });
     res.send(student);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/students", async (req, res, next) => {
+  try {
+    const newStudent = await Student.create(req.body);
+    res.status(201).send(newStudent);
   } catch (error) {
     next(error);
   }

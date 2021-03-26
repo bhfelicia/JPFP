@@ -12,6 +12,15 @@ nav {
   justify-content: space-around;
 }
 
+/* #add-campus {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+} */
+/* #create-campus {
+  display: flex;
+  width: 100%;
+} */
 .widgets {
   display: flex;
   justify-content: space-around;

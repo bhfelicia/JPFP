@@ -1,6 +1,7 @@
 //Action types
 
 export const GET_STUDENTS = "GET_STUDENTS";
+export const ADD_STUDENT = "ADD_STUDENT";
 
 export const GET_CAMPUSES = "GET_CAMPUSES";
 export const ADD_CAMPUS = "ADD_CAMPUS";
@@ -11,6 +12,13 @@ export const getStudents = (students) => {
   return {
     type: GET_STUDENTS,
     students,
+  };
+};
+
+export const addStudent = (student) => {
+  return {
+    type: ADD_STUDENT,
+    student,
   };
 };
 

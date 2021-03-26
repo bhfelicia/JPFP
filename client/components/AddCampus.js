@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { setCampus } from "../store/thunks";
 
 class AddCampus extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: "",
       imageUrl: "",
@@ -31,7 +31,7 @@ class AddCampus extends Component {
     return (
       <div id="create-campus">
         <h3>Add a new campus!</h3>
-        <form id="add-campus" onSubmit={handleSubmit}>
+        <form id="create-campus" onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
           <input name="name" value={name} onChange={handleChange} />
           <label htmlFor="imageUrl">Image</label>

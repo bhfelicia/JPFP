@@ -1,13 +1,21 @@
 //import axios
 import axios from "axios";
 //import action creators
-import { getStudents, getCampuses, addCampus } from "./actions";
+import { getStudents, addStudent, getCampuses, addCampus } from "./actions";
 
 //Thunk Creators
 export const fetchStudents = () => {
   return async (dispatch) => {
     const { data: students } = await axios.get("/api/students");
     dispatch(getStudents(students));
+  };
+};
+
+export const setStudent = (student, history) => {
+  return async (dispatch) => {
+    const { data: created } = await axios.post("/api/students", student);
+    dispatch(addStudent(created));
+    // history.push("/students");
   };
 };
 

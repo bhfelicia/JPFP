@@ -6,7 +6,9 @@ import AddCampus from "./AddCampus";
 const Campuses = ({ campuses }) => {
   return (
     <div className="widgets">
-      <AddCampus />
+      <div id="add-campus">
+        <AddCampus />
+      </div>
       {campuses.map((campus) => (
         <Link to={`/campuses/${campus.id}`} key={`${campus.id}`}>
           <img src={campus.imageUrl}></img>

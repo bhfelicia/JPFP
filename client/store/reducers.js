@@ -1,12 +1,13 @@
 import { combineReducers } from "redux";
-import { GET_STUDENTS, GET_CAMPUSES, ADD_CAMPUS } from "./actions";
+import { GET_STUDENTS, ADD_STUDENT, GET_CAMPUSES, ADD_CAMPUS } from "./actions";
 
 //individual reducers
 const studentsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_STUDENTS:
       return action.students;
-
+    case ADD_STUDENT:
+      return [...state, action.student];
     default:
       return state;
   }
