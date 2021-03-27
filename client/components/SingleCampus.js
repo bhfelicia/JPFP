@@ -13,11 +13,13 @@ const SingleCampus = ({ campus }) => {
       <h2>{campus.address}</h2>
       <p>{campus.description}</p>
       <ol>
-        {campus.students.map((student) => (
-          <Link to={`/students/${student.id}`} key={student.id}>
-            <li>{student.fullName}</li>
-          </Link>
-        ))}
+        {campus.students
+          ? campus.students.map((student) => (
+              <Link to={`/students/${student.id}`} key={student.id}>
+                <li>{student.fullName}</li>
+              </Link>
+            ))
+          : ""}
       </ol>
     </div>
   );

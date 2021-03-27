@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { setStudent } from "../store/thunks";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 
 class AddStudent extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class AddStudent extends Component {
     const { firstName, lastName, image, gpa } = this.state;
     const { handleSubmit, handleChange } = this;
     return (
-      <div id="add-student">
+      <div id="add-student" className="form">
         <h3>Add a new student!</h3>
         <form onSubmit={handleSubmit}>
           <label htmlFor="firstName">First name</label>
@@ -51,4 +52,4 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   createStudent: (student) => dispatch(setStudent(student, history)),
 });
 
-export default connect(null, mapDispatchToProps)(AddStudent);
+export default withRouter(connect(null, mapDispatchToProps)(AddStudent));

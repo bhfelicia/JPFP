@@ -12,8 +12,8 @@ const SingleStudent = ({ student }) => {
       <img src={student.image}></img>
       <h2>{student.email}</h2>
       <p>GPA: {student.gpa}</p>
-      <Link to={`/campuses/${student.campus.id}`}>
-        <h3>{student.campus.name}</h3>
+      <Link to={`/campuses/${student.campus ? student.campus.id : ""}`}>
+        <h3>{student.campus ? student.campus.name : ""}</h3>
       </Link>
     </div>
   );

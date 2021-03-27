@@ -32,3 +32,6 @@ img {
   width: 900px;
   border-radius: 50%;
 }
+.form {
+  display: flex;
+}

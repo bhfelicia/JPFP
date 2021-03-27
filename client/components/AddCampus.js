@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter } from "react-router";
 import { setCampus } from "../store/thunks";
 
 class AddCampus extends Component {
@@ -29,7 +30,7 @@ class AddCampus extends Component {
     const { name, imageUrl, address, description } = this.state;
     const { handleSubmit, handleChange } = this;
     return (
-      <div id="create-campus">
+      <div id="create-campus" className="form">
         <h3>Add a new campus!</h3>
         <form id="create-campus" onSubmit={handleSubmit}>
           <label htmlFor="name">Name</label>
@@ -56,4 +57,4 @@ const mapDispatchToProps = (dispatch, { history }) => ({
   createCampus: (campus) => dispatch(setCampus(campus, history)),
 });
 
-export default connect(null, mapDispatchToProps)(AddCampus);
+export default withRouter(connect(null, mapDispatchToProps)(AddCampus));

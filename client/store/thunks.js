@@ -15,7 +15,7 @@ export const setStudent = (student, history) => {
   return async (dispatch) => {
     const { data: created } = await axios.post("/api/students", student);
     dispatch(addStudent(created));
-    // history.push("/students");
+    history.push(`/students/${created.id}`);
   };
 };
 
@@ -30,6 +30,6 @@ export const setCampus = (campus, history) => {
   return async (dispatch) => {
     const { data: created } = await axios.post("/api/campuses", campus);
     dispatch(addCampus(created));
-    history.push("/campuses");
+    history.push(`/campuses/${created.id}`);
   };
 };
