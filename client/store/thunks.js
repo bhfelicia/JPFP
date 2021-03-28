@@ -1,7 +1,14 @@
 //import axios
 import axios from "axios";
 //import action creators
-import { getStudents, addStudent, getCampuses, addCampus } from "./actions";
+import {
+  getStudents,
+  addStudent,
+  deleteStudent,
+  getCampuses,
+  addCampus,
+  deleteCampus,
+} from "./actions";
 
 //Thunk Creators
 export const fetchStudents = () => {
@@ -16,6 +23,15 @@ export const setStudent = (student, history) => {
     const { data: created } = await axios.post("/api/students", student);
     dispatch(addStudent(created));
     history.push(`/students/${created.id}`);
+  };
+};
+
+export const destroyStudent = (student, history) => {
+  return async (dispatch) => {
+    console.log(student);
+    await axios.delete(`/api/students/${student.id}`);
+    dispatch(deleteStudent(student));
+    history.push("/students");
   };
 };
 

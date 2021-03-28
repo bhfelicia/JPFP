@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import AddStudent from "./AddStudent";
+import { destroyStudent } from "../store/thunks";
 
-const Students = ({ students }) => {
+const Students = ({ students, deleteStudent }) => {
   return (
     <div className="widgets">
       <AddStudent />
@@ -15,7 +16,7 @@ const Students = ({ students }) => {
             <h3>
               Studies at {student.campus ? student.campus.name : "unknown"}
             </h3>
-            <button>X</button>
+            <button onClick={() => deleteStudent(student)}>X</button>
           </Link>
         );
       })}
@@ -27,4 +28,8 @@ const mapStateToProps = ({ students }) => ({
   students,
 });
 
-export default connect(mapStateToProps)(Students);
+const mapDispatchToProps = (dispatch, { history }) => ({
+  deleteStudent: (student) => dispatch(destroyStudent(student, history)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Students);
