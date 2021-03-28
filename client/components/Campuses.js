@@ -14,6 +14,7 @@ const Campuses = ({ campuses }) => {
           <img src={campus.imageUrl}></img>
           <h2>{campus.name}</h2>
           <h3>{campus.students ? campus.students.length : 0} students</h3>
+          <button>X</button>
         </Link>
       ))}
     </div>

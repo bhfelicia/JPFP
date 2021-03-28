@@ -15,6 +15,7 @@ const Students = ({ students }) => {
             <h3>
               Studies at {student.campus ? student.campus.name : "unknown"}
             </h3>
+            <button>X</button>
           </Link>
         );
       })}

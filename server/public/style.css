@@ -12,26 +12,48 @@ nav {
   justify-content: space-around;
 }
 
-/* #add-campus {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-} */
-/* #create-campus {
-  display: flex;
+#add-campus {
   width: 100%;
-} */
+}
+
+#add-student {
+  width: 100%;
+}
+
 .widgets {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 30px;
   margin: 50px;
+  align-items: center;
 }
 img {
   width: 900px;
   border-radius: 50%;
 }
-.form {
+
+a > * {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#add-student {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-campus {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.form-submit {
+  display: flex;
+  flex-direction: row;
 }

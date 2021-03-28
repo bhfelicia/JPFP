@@ -31,7 +31,7 @@ class AddStudent extends Component {
     return (
       <div id="add-student" className="form">
         <h3>Add a new student!</h3>
-        <form onSubmit={handleSubmit}>
+        <form className="form-submit" onSubmit={handleSubmit}>
           <label htmlFor="firstName">First name</label>
           <input name="firstName" value={firstName} onChange={handleChange} />
           <label htmlFor="lastName">Last name</label>
