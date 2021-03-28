@@ -49,3 +49,11 @@ export const setCampus = (campus, history) => {
     history.push(`/campuses/${created.id}`);
   };
 };
+
+export const destroyCampus = (campus, history) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/campuses/${campus.id}`);
+    dispatch(deleteCampus(campus));
+    history.push("/campuses");
+  };
+};

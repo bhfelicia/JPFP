@@ -37,6 +37,15 @@ router.get("/campuses/:id", async (req, res, next) => {
   }
 });
 
+router.delete("/campuses/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const campus = await Campus.findByPk(id);
+    await campus.destroy();
+    res.sendStatus(204);
+  } catch (error) {}
+});
+
 router.get("/students", async (req, res, next) => {
   try {
     const students = await Student.findAll({

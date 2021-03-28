@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import AddCampus from "./AddCampus";
+import { destroyCampus } from "../store/thunks";
 
-const Campuses = ({ campuses }) => {
+const Campuses = ({ campuses, deleteCampus }) => {
   return (
     <div className="widgets">
       <div id="add-campus">
@@ -14,7 +15,7 @@ const Campuses = ({ campuses }) => {
           <img src={campus.imageUrl}></img>
           <h2>{campus.name}</h2>
           <h3>{campus.students ? campus.students.length : 0} students</h3>
-          <button>X</button>
+          <button onClick={() => deleteCampus(campus)}>X</button>
         </Link>
       ))}
     </div>
@@ -25,4 +26,8 @@ const mapStateToProps = ({ campuses }) => ({
   campuses,
 });
 
-export default connect(mapStateToProps)(Campuses);
+const mapDispatchToProps = (dispatch, { history }) => ({
+  deleteCampus: (campus) => dispatch(destroyCampus(campus, history)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Campuses);
