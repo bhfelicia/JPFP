@@ -7,6 +7,7 @@ export const DELETE_STUDENT = "DELETE_STUDENT";
 export const GET_CAMPUSES = "GET_CAMPUSES";
 export const ADD_CAMPUS = "ADD_CAMPUS";
 export const DELETE_CAMPUS = "DELETE_CAMPUS";
+export const EDIT_CAMPUS = "EDIT_CAMPUS";
 
 //Action creators
 
@@ -48,6 +49,13 @@ export const addCampus = (campus) => {
 export const deleteCampus = (campus) => {
   return {
     type: DELETE_CAMPUS,
+    campus,
+  };
+};
+
+export const editCampus = (campus) => {
+  return {
+    type: EDIT_CAMPUS,
     campus,
   };
 };

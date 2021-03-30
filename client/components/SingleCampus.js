@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// import EditCampus from "./EditCampus";
 
 const SingleCampus = ({ campus }) => {
   if (!campus) {
@@ -21,6 +22,7 @@ const SingleCampus = ({ campus }) => {
             ))
           : ""}
       </ol>
+      <Link to={`/campuses/${campus.id}/edit`}>Edit this campus</Link>
     </div>
   );
 };

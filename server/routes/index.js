@@ -43,7 +43,19 @@ router.delete("/campuses/:id", async (req, res, next) => {
     const campus = await Campus.findByPk(id);
     await campus.destroy();
     res.sendStatus(204);
-  } catch (error) {}
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.put("/campuses/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const editCampus = await Campus.findByPk(id);
+    res.send(await editCampus.update(req.body));
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.get("/students", async (req, res, next) => {

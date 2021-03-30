@@ -8,6 +8,7 @@ import {
   getCampuses,
   addCampus,
   deleteCampus,
+  editCampus,
 } from "./actions";
 
 //Thunk Creators
@@ -55,5 +56,16 @@ export const destroyCampus = (campus, history) => {
     await axios.delete(`/api/campuses/${campus.id}`);
     dispatch(deleteCampus(campus));
     history.push("/campuses");
+  };
+};
+
+export const updateCampus = (campus, history) => {
+  return async (dispatch) => {
+    const { data: updateCampus } = await axios.put(
+      `/api/campuses/${campus.id}/edit`,
+      campus
+    );
+    dispatch(editCampus(campus));
+    history.push(`/campuses/${updateCampus.id}`);
   };
 };

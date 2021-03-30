@@ -6,6 +6,7 @@ import {
   GET_CAMPUSES,
   ADD_CAMPUS,
   DELETE_CAMPUS,
+  EDIT_CAMPUS,
 } from "./actions";
 
 //individual reducers
@@ -35,6 +36,12 @@ const campusesReducer = (state = [], action) => {
 
     case DELETE_CAMPUS:
       return state.filter((campus) => campus.id !== action.campus.id);
+
+    case EDIT_CAMPUS:
+      const newState = state.map((campus) =>
+        campus.id === action.campus.id ? action.campus : campus
+      );
+      return [...newState];
 
     default:
       return state;
