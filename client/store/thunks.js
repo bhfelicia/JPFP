@@ -29,7 +29,6 @@ export const setStudent = (student, history) => {
 
 export const destroyStudent = (student, history) => {
   return async (dispatch) => {
-    console.log(student);
     await axios.delete(`/api/students/${student.id}`);
     dispatch(deleteStudent(student));
     history.push("/students");

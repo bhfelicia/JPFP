@@ -5,7 +5,6 @@ import { updateCampus } from "../store/thunks";
 class EditCampus extends Component {
   constructor(props) {
     super(props);
-    // console.log(props);
     const { id, name, imageUrl, address, description } = props;
     this.state = {
       id: id ? id : "",
@@ -37,10 +36,7 @@ class EditCampus extends Component {
     }
   }
   render() {
-    // console.log(this.props);
-    console.log(this.state);
-    const { id, name, imageUrl, address, description } =
-      this.props.campus || "";
+    const { name } = this.props.campus || "";
     const { handleSubmit, handleChange } = this;
     return (
       <div>
