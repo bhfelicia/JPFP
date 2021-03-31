@@ -7,7 +7,7 @@ const SingleStudent = ({ student }) => {
     return null;
   }
   return (
-    <div className="single-student">
+    <div className="singular">
       <h1>{student.fullName}</h1>
       <img src={student.image}></img>
       <h2>{student.email}</h2>
@@ -15,6 +15,7 @@ const SingleStudent = ({ student }) => {
       <Link to={`/campuses/${student.campus ? student.campus.id : ""}`}>
         <h3>{student.campus ? student.campus.name : ""}</h3>
       </Link>
+      <Link to={`/students/${student.id}/edit`}>Update this student</Link>
     </div>
   );
 };

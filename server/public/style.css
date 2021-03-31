@@ -57,3 +57,10 @@ a > * {
   display: flex;
   flex-direction: row;
 }
+
+.singular {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

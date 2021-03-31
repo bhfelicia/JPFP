@@ -8,7 +8,7 @@ const SingleCampus = ({ campus }) => {
     return null;
   }
   return (
-    <div className="single-campus">
+    <div className="singular">
       <h1>{campus.name}</h1>
       <img src={campus.imageUrl}></img>
       <h2>{campus.address}</h2>
@@ -22,7 +22,7 @@ const SingleCampus = ({ campus }) => {
             ))
           : ""}
       </ol>
-      <Link to={`/campuses/${campus.id}/edit`}>Edit this campus</Link>
+      <Link to={`/campuses/${campus.id}/edit`}>Update this campus</Link>
     </div>
   );
 };

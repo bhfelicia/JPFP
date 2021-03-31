@@ -3,6 +3,7 @@ import {
   GET_STUDENTS,
   ADD_STUDENT,
   DELETE_STUDENT,
+  EDIT_STUDENT,
   GET_CAMPUSES,
   ADD_CAMPUS,
   DELETE_CAMPUS,
@@ -21,6 +22,10 @@ const studentsReducer = (state = [], action) => {
     case DELETE_STUDENT:
       return state.filter((student) => student.id !== action.student.id);
 
+    case EDIT_STUDENT:
+      return state.map((student) =>
+        student.id === action.student.id ? action.student : student
+      );
     default:
       return state;
   }

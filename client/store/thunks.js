@@ -5,6 +5,7 @@ import {
   getStudents,
   addStudent,
   deleteStudent,
+  editStudent,
   getCampuses,
   addCampus,
   deleteCampus,
@@ -32,6 +33,17 @@ export const destroyStudent = (student, history) => {
     await axios.delete(`/api/students/${student.id}`);
     dispatch(deleteStudent(student));
     history.push("/students");
+  };
+};
+
+export const updateStudent = (student, history) => {
+  return async (dispatch) => {
+    const { data: updateStudent } = await axios.put(
+      `/api/students/${student.id}/edit`,
+      student
+    );
+    dispatch(editStudent(updateStudent));
+    history.push(`/students/${updateStudent.id}`);
   };
 };
 
