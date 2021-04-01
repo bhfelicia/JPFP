@@ -4,6 +4,7 @@ import {
   ADD_STUDENT,
   DELETE_STUDENT,
   EDIT_STUDENT,
+  UNREGISTER_STUDENT,
   GET_CAMPUSES,
   ADD_CAMPUS,
   DELETE_CAMPUS,
@@ -26,6 +27,12 @@ const studentsReducer = (state = [], action) => {
       return state.map((student) =>
         student.id === action.student.id ? action.student : student
       );
+
+    case UNREGISTER_STUDENT:
+      return state.map((student) =>
+        student.id === action.student.id ? (student.campusId = null) : student
+      );
+
     default:
       return state;
   }

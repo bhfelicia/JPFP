@@ -4,6 +4,7 @@ export const GET_STUDENTS = "GET_STUDENTS";
 export const ADD_STUDENT = "ADD_STUDENT";
 export const DELETE_STUDENT = "DELETE_STUDENT";
 export const EDIT_STUDENT = "EDIT_STUDENT";
+export const UNREGISTER_STUDENT = "UNREGISTER_STUDENT";
 
 export const GET_CAMPUSES = "GET_CAMPUSES";
 export const ADD_CAMPUS = "ADD_CAMPUS";
@@ -36,6 +37,13 @@ export const deleteStudent = (student) => {
 export const editStudent = (student) => {
   return {
     type: EDIT_STUDENT,
+    student,
+  };
+};
+
+export const unregisterStudent = (student) => {
+  return {
+    type: UNREGISTER_STUDENT,
     student,
   };
 };

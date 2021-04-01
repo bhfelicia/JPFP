@@ -111,4 +111,14 @@ router.put("/students/:id/edit", async (req, res, next) => {
   }
 });
 
+router.put("/students/:id/unregister", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const unregStudent = await Student.findByPk(id);
+    res.send(await unregStudent.update({ campusId: null }));
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

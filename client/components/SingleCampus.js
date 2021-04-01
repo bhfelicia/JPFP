@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { unenrollStudent } from "../store/thunks";
 
-const SingleCampus = ({ campus }) => {
+const SingleCampus = ({ campus, unregisterStudent }) => {
   if (!campus) {
     return null;
   }
@@ -15,9 +16,14 @@ const SingleCampus = ({ campus }) => {
       <ol>
         {campus.students
           ? campus.students.map((student) => (
-              <Link to={`/students/${student.id}`} key={student.id}>
-                <li>{student.fullName}</li>
-              </Link>
+              <div key={student.id}>
+                <Link to={`/students/${student.id}`}>
+                  <li>{student.fullName}</li>
+                </Link>
+                <button onClick={() => unregisterStudent(student)}>
+                  Unregister
+                </button>
+              </div>
             ))
           : ""}
       </ol>
@@ -33,4 +39,8 @@ const mapStateToProps = ({ campuses }, otherProps) => {
   return { campus };
 };
 
-export default connect(mapStateToProps)(SingleCampus);
+const mapDispatchToProps = (dispatch, { history }) => ({
+  unregisterStudent: (student) => dispatch(unenrollStudent(student, history)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleCampus);

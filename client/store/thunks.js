@@ -6,6 +6,7 @@ import {
   addStudent,
   deleteStudent,
   editStudent,
+  unregisterStudent,
   getCampuses,
   addCampus,
   deleteCampus,
@@ -44,6 +45,18 @@ export const updateStudent = (student, history) => {
     );
     dispatch(editStudent(updateStudent));
     history.push(`/students/${updateStudent.id}`);
+  };
+};
+
+export const unenrollStudent = (student, history) => {
+  return async (dispatch) => {
+    const idOfCampus = student.campusId;
+    const { data: unenrolled } = await axios.put(
+      `/api/students/${student.id}/unregister`,
+      student
+    );
+    dispatch(unregisterStudent(unenrolled));
+    history.push(`/campuses/${idOfCampus}`);
   };
 };
 
