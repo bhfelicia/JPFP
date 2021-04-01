@@ -5,11 +5,12 @@ import { updateStudent } from "../store/thunks";
 class EditStudent extends Component {
   constructor(props) {
     super(props);
-    const { id, firstName, lastName, image, gpa } = props;
+    const { id, firstName, lastName, image, gpa, email } = props;
     this.state = {
       id: id ? id : "",
       firstName: id ? firstName : "",
       lastName: id ? lastName : "",
+      email: id ? email : "",
       image: id ? image : "",
       gpa: id ? gpa : 1,
     };
@@ -39,7 +40,7 @@ class EditStudent extends Component {
     console.log(this.props);
     const { fullName } = this.props.student || "";
     const { handleChange, handleSubmit } = this;
-    const { firstName, lastName, image, gpa } = this.state;
+    const { firstName, lastName, image, gpa, email } = this.state;
 
     return (
       <div>
@@ -49,6 +50,8 @@ class EditStudent extends Component {
           <input name="firstName" value={firstName} onChange={handleChange} />
           <label htmlFor="lastName">Last name</label>
           <input name="lastName" value={lastName} onChange={handleChange} />
+          <label htmlFor="email">Email address</label>
+          <input name="email" value={email} onChange={handleChange} />
           <label htmlFor="image">Image</label>
           <input name="image" value={image} onChange={handleChange} />
           <label htmlFor="gpa">GPA</label>

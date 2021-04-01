@@ -27,9 +27,11 @@ Student.init(
       },
     },
     email: {
-      type: DataTypes.VIRTUAL,
-      get() {
-        return `${this.firstName}.${this.lastName}@gmail.com`;
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true,
       },
     },
     image: {

@@ -12,26 +12,30 @@ const syncAndSeed = async () => {
   try {
     await db.sync({ force: true });
     const beethoven = await Student.create({
-      firstName: "Ludwig-van",
+      firstName: "Ludwig",
       lastName: "Beethoven",
+      email: "Ludwig.Beethoven@gmail.com",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/6/6f/Beethoven.jpg",
     });
     const debussy = await Student.create({
       firstName: "Claude",
       lastName: "Debussy",
+      email: "Claude.Debussy@gmail.com",
       image:
         "https://cdn.britannica.com/83/216783-050-E461C8B6/French-composer-Claude-Debussy.jpg",
     });
     const ravel = await Student.create({
       firstName: "Maurice",
       lastName: "Ravel",
+      email: "Maurice.Ravel@gmail.com",
       image:
         "https://wpr-public.s3.amazonaws.com/wprorg/articles/2018/08/maurice-ravel.jpg",
     });
     const bach = await Student.create({
-      firstName: "Johann-Sebastian",
+      firstName: "Johann",
       lastName: "Bach",
+      email: "Johann.Bach@gmail.com",
       image: "https://static.dw.com/image/18418948_303.jpg",
     });
 
