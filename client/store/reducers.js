@@ -30,7 +30,7 @@ const studentsReducer = (state = [], action) => {
 
     case UNREGISTER_STUDENT:
       return state.map((student) =>
-        student.id === action.student.id ? (student.campusId = null) : student
+        student.id === action.student.id ? action.student : student
       );
 
     default:
