@@ -15,18 +15,8 @@ class SingleCampus extends Component {
       description: id ? description : "",
     };
   }
-  // componentDidMount() {
-  //   this.setState(this.props.campus);
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (!prevProps.campus && this.props.campus.id) {
-  //     this.setState(this.props.campus);
-  //   }
-  // }
 
   render() {
-    console.log("state is: ", this.state);
     const { campus, unregisterStudent, students } = this.props;
     if (!campus) {
       return null;
@@ -56,21 +46,13 @@ class SingleCampus extends Component {
     );
   }
 }
-// ({ campus, unregisterStudent }) => {
-//   if (!campus) {
-//     return null;
-//   }
-//   return (
-
-//   );
-// };
 
 const mapStateToProps = ({ campuses, students }, otherProps) => {
   const campus = campuses.find(
     (campus) => campus.id === Number(otherProps.match.params.id)
   );
 
-  const theStudents = campus.id
+  const theStudents = campus
     ? students.filter((student) => student.campusId === campus.id)
     : [];
   return { campus, students: theStudents };

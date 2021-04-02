@@ -50,14 +50,11 @@ export const updateStudent = (student, history) => {
 
 export const unenrollStudent = (student) => {
   return async (dispatch) => {
-    // const idOfCampus = student.campusId;
     const { data: unenrolled } = await axios.put(
       `/api/students/${student.id}/unregister`,
       student
     );
-    console.log(unenrolled);
     dispatch(unregisterStudent(unenrolled));
-    // history.push(`/campuses/${idOfCampus}`);
   };
 };
 

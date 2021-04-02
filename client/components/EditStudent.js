@@ -37,7 +37,6 @@ class EditStudent extends Component {
   }
 
   render() {
-    console.log(this.props);
     const { fullName } = this.props.student || "";
     const { handleChange, handleSubmit } = this;
     const { firstName, lastName, image, gpa, email } = this.state;
