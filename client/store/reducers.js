@@ -56,10 +56,10 @@ const campusesReducer = (state = [], action) => {
       return [...newState];
 
     // case UNREGISTER_STUDENT:
-    //   const campus = state.find(action.student.campusId === campus.id);
-    //   const students = campus.students.filter(student => student.id !== action.student.id)
-    //   campus.students = students
-    //   const campuses
+    //   const theCampus = state.find(action.student.campusId === theCampus.id);
+    //   const updatedStudents = campus.students.filter(student => student.id !== action.student.id)
+    //   campus.students = updatedStudents
+    //   const campuses = state.filter(campus => )
 
     default:
       return state;
