@@ -11,6 +11,7 @@ class AddStudent extends Component {
       firstName: "",
       lastName: "",
       image: "",
+      email: "",
       gpa: 3.5,
     };
     this.handleChange = this.handleChange.bind(this);
@@ -26,7 +27,7 @@ class AddStudent extends Component {
     this.props.createStudent({ ...this.state });
   }
   render() {
-    const { firstName, lastName, image, gpa } = this.state;
+    const { firstName, lastName, email, image, gpa } = this.state;
     const { handleSubmit, handleChange } = this;
     return (
       <div id="add-student" className="form">
@@ -36,6 +37,8 @@ class AddStudent extends Component {
           <input name="firstName" value={firstName} onChange={handleChange} />
           <label htmlFor="lastName">Last name</label>
           <input name="lastName" value={lastName} onChange={handleChange} />
+          <label htmlFor="email">Email address</label>
+          <input name="email" value={email} onChange={handleChange} />
           <label htmlFor="image">Image</label>
           <input name="image" value={image} onChange={handleChange} />
           <label htmlFor="gpa">GPA</label>

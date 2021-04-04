@@ -24,6 +24,7 @@ export const fetchStudents = () => {
 export const setStudent = (student, history) => {
   return async (dispatch) => {
     const { data: created } = await axios.post("/api/students", student);
+    console.log(created);
     dispatch(addStudent(created));
     history.push(`/students/${created.id}`);
   };

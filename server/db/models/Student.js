@@ -46,4 +46,12 @@ Student.init(
   },
   { sequelize: db, modelName: "students" }
 );
+
+// Student.beforeValidate = function (instance) {
+//   console.log("this runs");
+//   if (!instance.email.length) {
+//     instance.email = `${instance.firstName}.${instance.lastName}@gmail.com`;
+//   }
+// };
+
 module.exports = Student;
