@@ -7,7 +7,9 @@ import { destroyStudent } from "../store/thunks";
 const Students = ({ students, deleteStudent }) => {
   return (
     <div className="widgets">
-      <AddStudent />
+      <div id="add-student">
+        <AddStudent />
+      </div>
       {students.map((student) => {
         return (
           <Link to={`/students/${student.id}`} key={`${student.id}`}>

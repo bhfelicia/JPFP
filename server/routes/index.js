@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const { default: axios } = require("axios");
 //import models from /db
 const {
   Models: { Campus, Student },
@@ -40,7 +39,7 @@ router.get("/campuses/:id", async (req, res, next) => {
 router.delete("/campuses/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const campus = await Campus.findByPk(id);
+    const campus = await Campus.findByPk(id, { include: [Student] });
     await campus.destroy();
     res.sendStatus(204);
   } catch (error) {
@@ -104,8 +103,9 @@ router.delete("/students/:id", async (req, res, next) => {
 router.put("/students/:id/edit", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const editStudent = await Student.findByPk(id);
-    res.send(await editStudent.update(req.body));
+    const editStudent = await Student.findByPk(id, { include: [Campus] });
+    const student = await editStudent.update(req.body);
+    res.send(student);
   } catch (error) {
     next(error);
   }
@@ -114,7 +114,7 @@ router.put("/students/:id/edit", async (req, res, next) => {
 router.put("/students/:id/unregister", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const unregStudent = await Student.findByPk(id);
+    const unregStudent = await Student.findByPk(id, { include: [Campus] });
     res.send(await unregStudent.update({ campusId: null }));
   } catch (error) {
     next(error);

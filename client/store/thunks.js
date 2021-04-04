@@ -39,12 +39,16 @@ export const destroyStudent = (student, history) => {
 
 export const updateStudent = (student, history) => {
   return async (dispatch) => {
-    const { data: updateStudent } = await axios.put(
-      `/api/students/${student.id}/edit`,
-      student
-    );
-    dispatch(editStudent(updateStudent));
-    history.push(`/students/${updateStudent.id}`);
+    try {
+      const { data: updateStudent } = await axios.put(
+        `/api/students/${student.id}/edit`,
+        student
+      );
+      dispatch(editStudent(updateStudent));
+      history.push(`/students/${updateStudent.id}`);
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 

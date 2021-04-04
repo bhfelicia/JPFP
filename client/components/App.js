@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { fetchStudents, fetchCampuses } from "../store/thunks";
 //import any sub-components
 import Navbar from "./Navbar";
@@ -27,10 +27,10 @@ class App extends Component {
           <Switch>
             <Route exact path="/students" component={Students} />
             <Route exact path="/students/:id" component={SingleStudent} />
-            <Route path="/students/:id/edit" component={EditStudent} />
+            <Route exact path="/students/:id/edit" component={EditStudent} />
             <Route exact path="/campuses" component={Campuses} />
             <Route exact path="/campuses/:id" component={SingleCampus} />
-            <Route path="/campuses/:id/edit" component={EditCampus} />
+            <Route exact path="/campuses/:id/edit" component={EditCampus} />
           </Switch>
         </div>
       </Router>
